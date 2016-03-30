@@ -1,0 +1,27 @@
+group 'com.testeComInterface.desespero'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'war'
+apply plugin: 'idea'
+apply from: 'https://raw.github.com/akhikhl/gretty/master/pluginScripts/gretty.plugin'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.glassfish.jersey.media:jersey-media-json-jackson:2.22.2'
+    compile 'org.glassfish.jersey.bundles:jaxrs-ri:2.22.2'
+
+}
+
+compileJava {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+gretty {
+    port = 8081
+    contextPath = '/'
+    // ... many more properties
+}
