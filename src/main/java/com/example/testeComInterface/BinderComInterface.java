@@ -2,11 +2,11 @@ package com.example.testeComInterface;
 
 import com.example.testeComInterface.operacao.Soma;
 import com.example.testeComInterface.operacao.SomaImpl;
-import org.glassfish.hk2.utilities.binding.AbstractBinder;
+import com.google.inject.AbstractModule;
 
-public class BinderComInterface extends AbstractBinder {
+public class BinderComInterface extends AbstractModule {
     @Override
     protected void configure() {
-        bind(SomaImpl.class).to(Soma.class);
+        bind(Soma.class).to(SomaImpl.class);
     }
 }
