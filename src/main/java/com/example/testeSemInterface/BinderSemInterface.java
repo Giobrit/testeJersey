@@ -1,11 +1,14 @@
 package com.example.testeSemInterface;
 
 import com.example.testeSemInterface.operacao.Soma;
-import org.glassfish.hk2.utilities.binding.AbstractBinder;
+import com.google.inject.AbstractModule;
+import com.google.inject.Binder;
+import com.google.inject.Module;
 
-public class BinderSemInterface extends AbstractBinder {
+public class BinderSemInterface extends AbstractModule {
     @Override
-    protected void configure() {
-        bind(Soma.class).to(Soma.class);
+    public void configure() {
+//        bind(Soma.class);
+
     }
 }
