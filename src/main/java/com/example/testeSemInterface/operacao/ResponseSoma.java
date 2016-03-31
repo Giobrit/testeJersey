@@ -1,10 +1,9 @@
 package com.example.testeSemInterface.operacao;
 
-
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class ResponseSoma {
-
+public class ResponseSoma implements Serializable {
     LocalDateTime data;
     Long resultado;
 
@@ -12,7 +11,6 @@ public class ResponseSoma {
         this.data = data;
         this.resultado = resultado;
     }
-
 
     public LocalDateTime getData() {
         return data;

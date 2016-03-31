@@ -1,11 +1,15 @@
 package com.example.testeSemInterface.operacao;
 
+import javax.inject.Singleton;
 import java.time.LocalDateTime;
 
+@Singleton
 public class Soma {
 
+    private LocalDateTime localDateTime = LocalDateTime.now();
+
     public ResponseSoma somar(Long numero1, Long numero2) {
-        return new ResponseSoma(LocalDateTime.now(), numero1 + numero2);
+        return new ResponseSoma(localDateTime, numero1 + numero2);
     }
 }
 

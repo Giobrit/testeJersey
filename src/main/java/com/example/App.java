@@ -14,13 +14,14 @@ import javax.ws.rs.ApplicationPath;
 
 @ApplicationPath("rest")
 public class App extends ResourceConfig {
+
     @Inject // Note: inject from HK2
     public void ApplicationConfig(ServiceLocator serviceLocator) {
 
         //final Logger logger = LoggerFactory.getLogger(getClass());
 
         // Guice
-        Injector injector = Guice.createInjector(new BinderSemInterface(), new BinderComInterface());
+        Injector injector = Guice.createInjector(new BinderComInterface(), new BinderSemInterface());
 
         // Guice HK2 bridge
         // See e.g. https://github.com/t-tang/jetty-jersey-HK2-Guice-boilerplate
@@ -36,4 +37,24 @@ public class App extends ResourceConfig {
         packages("com.example");
 
     }
+
+//    private static class ApplicationLifecycleListener extends AbstractContainerLifecycleListener {
+//        private final Logger logger = LoggerFactory.getLogger(getClass());
+//
+//        @Inject // Note: The HK2 bridge takes care of injecting from correct DI-container
+//                PersistService service;
+//
+//        @Override
+//        public void onStartup(Container container) {
+//            logger.info(">>> Application Startup");
+//        }
+//
+//        @Override
+//        public void onShutdown(Container container) {
+//            logger.info(">>> Application Shutdown");
+//
+//            // Stop persistence service
+//            service.stop();
+//        }
+//    }
 }

@@ -18,7 +18,6 @@ public class servico {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public ResponseSoma comInterface() {
-
         return soma.somar(18765760L, 934823346L);
     }
 }
